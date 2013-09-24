@@ -1,1 +1,57 @@
-"Hello" 
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Native Drag and Drop</title>
+	<link rel="stylesheet" href="main.css" />
+</head>
+<body>
+	<div id="dragElems">
+		<h2>Page Elements</h2>
+		<p>Drag any of the elements into the drop zone</p>
+		<ul id="drag-elements" class="list">
+			<li draggable="true" id="one">Element One</li>
+			<li draggable="true" id="two">Element Two</li>
+			<li draggable="true" id="three">Element Three</li>
+			<li draggable="true" id="four">Element Four</li>
+			<li draggable="true" id="five">Element Five</li>
+		</ul>
+		<div id="drop-target-one"><span id="dropMessage">Drop Here!</span> <ul class="list"></ul></div>
+	</div>
+
+	<div id="dragFiles">
+		<h2>Text Files</h2>
+		<p>Drag a .txt file from your computer onto the drop target.</p>
+		<div id="dd-files">Drop a .txt file here</div>
+		<pre id="file-content"></pre>
+	</div>
+
+	<div id="sortable">
+		<h2>Sorting Elements: Using same elements as Drag and Drop targets</h2>
+		<ul id="sort-elements" class="list">
+			<li draggable="true" data-order="1">Element One</li>
+			<li draggable="true" data-order="2">Element Two</li>
+			<li draggable="true" data-order="3">Element Three</li>
+			<li draggable="true" data-order="4">Element Four</li>
+			<li draggable="true" data-order="5">Element Five</li>
+		</ul>
+	</div>
+
+	<input type="file" id="files" name="files[]" multiple />
+	<span class="readBytesButtons">
+	  <button data-startbyte="0" data-endbyte="4">1-5</button>
+	  <button data-startbyte="5" data-endbyte="14">6-15</button>
+	  <button data-startbyte="6" data-endbyte="7">7-8</button>
+	  <button>entire file</button>
+	</span>
+	<output id="listOfSelectedFiles"></output>
+	<div id="byte_range"></div>
+	<div id="byte_content"></div>
+
+	<input type="file" id="trackFileProgress" name="file" />
+	<button onclick="abortRead();">Cancel read</button>
+	<div id="progress_bar"><div class="percent">0%</div></div>
+
+	<script src="app.js"></script>
+</body>
+</html>
